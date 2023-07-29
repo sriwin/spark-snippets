@@ -47,8 +47,8 @@ import scala.collection.mutable
 val schema = StructType(Seq(
   StructField("account_id", StringType),
   StructField("payload", StringType),
-  StructField("UPDATED_TIMESTAMP", StringType),
-  StructField("CREATED_TIMESTAMP", StringType)
+  StructField("created_timestamp", StringType),
+  StructField("updated_timestamp", StringType)
 ))
 val encoder = RowEncoder(schema)
 
