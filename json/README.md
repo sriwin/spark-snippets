@@ -99,10 +99,29 @@ df03.show(false)
 
 ## Approach # 3
 
-- TODO - JACKSON API
+- Convert all columns of delta lake table row to json 
 
+```scala
+%scala
+
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions.{coalesce, col, lit, struct, to_json}
+
+val df01 = spark.sql("select * from db_schema.customer_data limit 10")
+val df02 = df01.select(to_json(struct(df01.columns.map { c => coalesce(col(c), lit("")).as(c) }: _*)).as("body"))
+df02.collect().foreach(rowData => {
+  val body: String = rowData.getAs[String]("body")
+  println(body)
+})
+
+```
 
 ## Approach # 4
 
-- TODO - 
+- TODO - JACKSON API
+
+
+## Approach # 5
+
+- TODO - Lift API 
 
