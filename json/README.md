@@ -5,7 +5,7 @@
 
 - Very simple approach
 
-```
+```scala
 %scala
 
 val jsonTemplateFile = "{\"isbn\": \"isbnData\",\n" + " \"author\": \n" + "  {\n" + " \"lastname\": \"authorLastNameData\",\n" + "  \"firstname\": \"authorFirstNameData\"\n" + " },\n" + "\"editor\": \n" + "   {\n" + " \"lastname\": \"editorLastNameData\",\n" + "    \"firstname\": \"editorFirstNameData\"\n" + "  },\n" + "  \"title\": \"titleData\",  \n" + "  \"category\": [\"categoryData01\", \"categoryData02\"]\n" + " }"
@@ -32,7 +32,7 @@ println(jsonFile)
 
 - Replaces the data (table row) in the json template by reading the delta lake table
 
-```
+```scala
 %scala
     
 import org.apache.spark.sql.catalyst.encoders.RowEncoder
